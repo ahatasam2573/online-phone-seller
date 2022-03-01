@@ -15,7 +15,7 @@ const displaySearchResult = data => {
     if (data.length == 0) {
         const displayError = document.getElementById('error-message').style.display = 'block';
     }
-    else if (data.length <= 100) {
+    else if (data.length <= 20) {
         const searchResult = document.getElementById('search-result');
         searchResult.textContent = '';
         data.forEach(info => {
