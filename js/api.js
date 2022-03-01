@@ -1,3 +1,10 @@
+//spinner start
+const spin = param => {
+    document.getElementById('spinner').style.display = param;
+}
+
+
+//load data from API
 const loadPhones = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
@@ -10,6 +17,8 @@ const loadPhones = () => {
         .then(data => displaySearchResult(data.data))
 
 }
+
+//search phone 
 document.getElementById('error-message').style.display = 'none';
 const displaySearchResult = data => {
     if (data.length == 0) {
@@ -36,12 +45,20 @@ const displaySearchResult = data => {
             document.getElementById('error-message').style.display = 'none';
         });
     }
+    else if (data.length > 20) {
+        const searchResult = document.getElementById('search-result');
+        searchResult.textContent = '';
+        const size = data.length;
+        const objects = JSON.parse(size);
+        const items = objects.slice(0, 20);
+    }
     else {
         const searchResult = document.getElementById('search-result').style.display = 'none';
     }
 
 }
 
+//load phone and details
 const loadPhoneDetail = phoneId => {
     const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`;
 
