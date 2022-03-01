@@ -15,7 +15,7 @@ const displaySearchResult = data => {
     if (data.length == 0) {
         const displayError = document.getElementById('error-message').style.display = 'block';
     }
-    else if (data.length <= 20) {
+    else if (data.length <= 100) {
         const searchResult = document.getElementById('search-result');
         searchResult.textContent = '';
         data.forEach(info => {
@@ -23,7 +23,7 @@ const displaySearchResult = data => {
             const div = document.createElement('div');
             div.classList.add('col');
             div.innerHTML = `
-            <div class="card h-75 w-75 mx-auto mt-5">
+            <div class="card h-80 w-80 mx-auto mt-5">
                     <img src="${info.image}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h4 class="card-title">${info.phone_name}</h4>
@@ -57,12 +57,12 @@ const phoneDetail = info => {
     div.classList.add('card');
     div.innerHTML = `
         <img src="${info.image}" class="card-img-top" alt="...">
-        <div class="card-body mx-auto ms-0">
+        <div class="card-body                                                                                                                                                                                                                               ">
              <h5 class="card-title fw-bold">${info.name}</h5>
              <p class="card-text">ReleaseDate : ${info.releaseDate ? info.releaseDate : 'No relese date found!!'}</p>
              <p class="card-text">Sensors : ${info.mainFeatures.sensors}</p>
              <p class="card-text">Storage : ${info.mainFeatures.storage}</p>
-             <p class="card-text">Others : ${info.others.WLAN}</p>
+             <p >Others : ${info.others.WLAN}</p>
         </div>
     `;
     phoneDetail.appendChild(div);
