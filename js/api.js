@@ -1,9 +1,3 @@
-//spinner start
-const spin = param => {
-    document.getElementById('spinner').style.display = param;
-}
-
-
 //load data from API
 const loadPhones = () => {
     const searchField = document.getElementById('search-field');
@@ -73,8 +67,8 @@ const phoneDetail = info => {
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
-        <img src="${info.image}" class="card-img-top" alt="...">
-        <div class="card-body                                                                                                                                                                                                                               ">
+        <img src="${info.image}" class="card-img-top w-100 h-100" alt="...">  
+        <div class="card-body h-300 w-300"                                                                                                                                                                                                                             ">
              <h5 class="card-title fw-bold">${info.name}</h5>
              <p class="card-text">ReleaseDate : ${info.releaseDate ? info.releaseDate : 'No relese date found!!'}</p>
              <p class="card-text">Sensors : ${info.mainFeatures.sensors}</p>
