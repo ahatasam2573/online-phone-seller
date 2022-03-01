@@ -21,7 +21,7 @@ const displaySearchResult = data => {
     else if (data.length <= 20) {
         const searchResult = document.getElementById('search-result');
         searchResult.textContent = '';
-        data.forEach(info => {
+        (data.slice(0, 20)).forEach(info => {
             // console.log(info);
             const div = document.createElement('div');
             div.classList.add('col');
@@ -38,13 +38,6 @@ const displaySearchResult = data => {
             searchResult.appendChild(div);
             document.getElementById('error-message').style.display = 'none';
         });
-    }
-    else if (data.length > 20) {
-        const searchResult = document.getElementById('search-result');
-        searchResult.textContent = '';
-        const size = data.length;
-        const objects = JSON.parse(size);
-        const items = objects.slice(0, 20);
     }
     else {
         const searchResult = document.getElementById('search-result').style.display = 'none';
